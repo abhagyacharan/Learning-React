@@ -1,5 +1,11 @@
+import { createElement } from "react";
+
 function Greeting(){
-    return <h1>&quot;Heyy, I'm learning React in 2024.&quot;</h1>
+    return createElement(
+    'h1',
+    {className: 'greeting'},
+    'Hey all!'
+    );
 }
 
 export default Greeting;
