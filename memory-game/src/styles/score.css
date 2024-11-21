@@ -1,0 +1,10 @@
+.scorecard {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    background-color: #282c34;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    color: white;
+    gap: 2rem;
+  }
