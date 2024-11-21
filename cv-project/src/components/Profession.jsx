@@ -1,21 +1,30 @@
 import { useState } from "react";
 import '../styles/Profession.css'
+import { useEffect } from "react";
 
 export default function Profession() {
 
     const [edit, setEdit] = useState(true);
-    const [proInfo, setProInfo] = useState({company_name:'', position:'', responsibilities:'', start_date:'', end_date:''});
+    const [count, setCount] = useState(0);
+    const [proInfo, setProInfo] = useState({ company_name: '', position: '', responsibilities: '', start_date: '', end_date: '' });
 
-    function handleChange(e){
-        const {name, value} = e.target;
-        setProInfo({...proInfo, [name]:value});
+    function handleChange(e) {
+        const { name, value } = e.target;
+        setProInfo({ ...proInfo, [name]: value });
     };
+
+    useEffect(() => {
+        if (!edit) {
+            setCount(prevCount => prevCount+1);
+        }
+    }, [edit]);
 
     const toggleEdit = () => setEdit(!edit);
 
-    return(
+    return (
         <div>
             <h2>Professional Details</h2>
+            <p>Number of edits: {count}</p>
             {edit ? (
                 <form>
                     <input name="company_name" value={proInfo.company_name} onChange={handleChange} placeholder="Company Name" />
